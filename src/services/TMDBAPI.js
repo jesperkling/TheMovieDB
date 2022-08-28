@@ -5,13 +5,13 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3/'
 const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
 const getGenres = async () => {
-	const response = await axios.get(`/genre/movie/list?api_key=${apiKey}&language=en-US`)
+	const response = await axios.get(`/genre/movie/list?api_key=${apiKey}&include_adult=false`)
 
 	return response.data
 }
 
 const getNowPlaying = async () => {
-	const response = await axios.get(`/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`)
+	const response = await axios.get(`/movie/now_playing?api_key=${apiKey}&include_Adult=false`)
 
 	return response.data
 }
