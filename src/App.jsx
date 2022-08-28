@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
+import GenresPage from './pages/GenresPage'
 import NotFound from './pages/NotFound'
 import NowPlayingPage from './pages/NowPlayingPage'
 import PopularPage from './pages/PopularPage'
@@ -14,6 +15,7 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<HomePage />} />
+				<Route path="/genres" element={<GenresPage />} />
 				<Route path='/now_playing' element={<NowPlayingPage />} />
 				<Route path='/popular' element={<PopularPage />} />
 				<Route path='/top_rated' element={<TopRatedPage />} />
