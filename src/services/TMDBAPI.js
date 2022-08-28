@@ -16,9 +16,16 @@ const getNowPlaying = async () => {
 	return response.data
 }
 
+const getPopularMovies = async () => {
+	const response = await axios.get(`/movie/popular?api_key=${apiKey}&include_Adult=false`)
+
+	return response.data
+}
+
 const exports = {
 	getGenres,
 	getNowPlaying,
+	getPopularMovies,
 }
 
 export default exports
