@@ -1,4 +1,5 @@
-import React from 'react'
+import { useQuery } from 'react-query'
+import TheMovieDBAPI from '../services/TMDBAPI'
 
 const NowPlayingPage = () => {
 	return (
