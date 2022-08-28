@@ -7,7 +7,6 @@ const HomePage = () => {
 
 	return (
 		<Container className="py-3">
-			<h1>Welcome!</h1>
 			{error && (
 				<p>Error</p>
 			)}
