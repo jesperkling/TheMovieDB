@@ -20,7 +20,7 @@ const ActorPage = () => {
 			{data && (
 				<div>
 					<div>
-						<h1>{data.name}</h1>
+						<h1 className='text-center'>{data.name}</h1>
 						{data.profile_path
 							? <img
 								className='img-fluid'
@@ -34,7 +34,7 @@ const ActorPage = () => {
 						<p>Biography: {data.biography}</p>
 					</div>
 					<div>
-						<h3>Movies starring {data.name}</h3>
+						<h3 className='text-center'>Movies starring {data.name}</h3>
 					</div>
 				</div>
 			)}

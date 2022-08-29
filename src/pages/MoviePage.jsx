@@ -8,7 +8,7 @@ const MoviePage = () => {
 	const { data, error, isError, isLoading } = useQuery(['movie', id], () => TheMovieDBAPI.getMovie(id))
 
 	return (
-		<Container>
+		<Container className='text-center'>
 			<h1>Movie Page</h1>
 
 			{isLoading && (<p>Loading movie...</p>)}

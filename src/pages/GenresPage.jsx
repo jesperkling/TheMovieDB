@@ -9,7 +9,7 @@ const GenresPage = () => {
 	const { data, isLoading, isError, error } = useQuery(['genres'], TheMovieDBAPI.getGenres)
 
 	return (
-		<Container>
+		<Container className='text-center'>
 			<h1>Genres</h1>
 
 			{isLoading && (<p>Loading genres...</p>)}

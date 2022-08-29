@@ -1,4 +1,6 @@
 import { ListGroup } from 'react-bootstrap'
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import { useQuery } from 'react-query'
 import TheMovieDBAPI from '../services/TMDBAPI'
@@ -8,7 +10,7 @@ const NowPlayingPage = () => {
 	const { data, isLoading, error, isError } = useQuery(['now_playing'], TheMovieDBAPI.getNowPlaying)
 	
 	return (
-		<Container>
+		<Container className='text-center'>
 			<h1>Now playing in cinemas</h1>
 
 			{isLoading && (<p>Loading movies...</p>)}

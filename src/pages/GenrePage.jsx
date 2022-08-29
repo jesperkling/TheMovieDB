@@ -11,7 +11,7 @@ const GenrePage = () => {
 	console.log(data)
 
 	return (
-		<Container>
+		<Container className='text-center'>
 			{isLoading && (<p>Loading genres...</p>)}
 
 			{isError && (<p>Error! {error.message}</p>)}

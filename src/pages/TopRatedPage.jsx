@@ -8,7 +8,7 @@ const TopRatedPage = () => {
 	const { data, isLoading, error, isError } = useQuery(['popular'], TheMovieDBAPI.getTopRatedMovies)
 
 	return (
-		<Container>
+		<Container className='text-center'>
 			<h1>Top rated movies</h1>
 
 			{isLoading && (<p>Loading movies...</p>)}
