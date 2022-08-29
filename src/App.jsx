@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import ActorPage from './pages/ActorPage'
+import GenrePage from './pages/GenrePage'
 import GenresPage from './pages/GenresPage'
 import MoviePage from './pages/MoviePage'
 import NotFound from './pages/NotFound'
@@ -18,6 +19,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="/genres" element={<GenresPage />} />
+				<Route path="/genres/:id" element={<GenrePage />} />
 				<Route path='/now_playing' element={<NowPlayingPage />} />
 				<Route path='/popular' element={<PopularPage />} />
 				<Route path='/top_rated' element={<TopRatedPage />} />
