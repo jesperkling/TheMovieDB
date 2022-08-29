@@ -28,11 +28,32 @@ const getTopRatedMovies = async () => {
 	return response.data
 }
 
+const getMovie = async (id) => {
+	const response = await axios.get(`/movie/${id}?api_key=${apiKey}&include_adult=false&append_to_response=credits`)
+
+	return response.data
+}
+
+const getActor = async (id) => {
+	const response = await axios.get(`/person/${id}?api_key=${apiKey}&include_adult=false`)
+
+	return response.data
+}
+
+const getGenre = async (genre, page) => {
+	const response = await axios.get(`/discover/movie?api_key=${apiKey}&with_genres=${genre}&page=${page}`)
+
+	return response.data
+}
+
 const exports = {
 	getGenres,
 	getNowPlaying,
 	getPopularMovies,
 	getTopRatedMovies,
+	getMovie,
+	getActor,
+	getGenre,
 }
 
 export default exports
