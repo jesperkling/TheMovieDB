@@ -1,14 +1,14 @@
 import { ListGroup } from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
 import { useQuery } from 'react-query'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import TheMovieDBAPI from '../services/TMDBAPI'
 
 const ActorPage = () => {
 	const { id } = useParams()
 	const { data, error, isError, isLoading } = useQuery(['actor', id], () => TheMovieDBAPI.getActor(id))
 	const { data: actorMovies, isLoading: isLoadingTwo, isError: isErrorTwo, error: errorTwo } = useQuery(['actorMovies', id], () => TheMovieDBAPI.getActorMovies(id))
-
+	console.log(id)
 	console.log(data)
 	console.log(actorMovies)
 	return (
@@ -35,7 +35,15 @@ const ActorPage = () => {
 					</div>
 					<div>
 						<h3 className='text-center'>Movies starring {data.name}</h3>
+						{actorMovies && (
+							actorMovies.results.map(movie => (
+								<div key={movie.id}>
+									<Link to={`movie/${movie.id}`}>{movie.title}</Link>
+								</div>
+							))
+						)}
 					</div>
+
 				</div>
 			)}
 			
