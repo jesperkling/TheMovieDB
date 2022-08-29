@@ -7,8 +7,6 @@ const MoviePage = () => {
 	const { id } = useParams()
 	const { data, error, isError, isLoading } = useQuery(['movie', id], () => TheMovieDBAPI.getMovie(id))
 
-	console.log(data)
-
 	return (
 		<Container>
 			<h1>Movie Page</h1>
