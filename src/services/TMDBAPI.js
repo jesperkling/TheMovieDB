@@ -41,7 +41,7 @@ const getActor = async (id) => {
 }
 
 const getActorMovies = async (id) => {
-	const response = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&with_people=${id}`)
+	const response = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&with_people=${id}&append_to_response=credits`)
 
 	return response.data
 }
