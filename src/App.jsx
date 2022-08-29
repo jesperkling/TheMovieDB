@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
+import ActorPage from './pages/ActorPage'
 import GenresPage from './pages/GenresPage'
 import MoviePage from './pages/MoviePage'
 import NotFound from './pages/NotFound'
@@ -21,6 +22,7 @@ function App() {
 				<Route path='/popular' element={<PopularPage />} />
 				<Route path='/top_rated' element={<TopRatedPage />} />
 				<Route path="/movies/:id" element={<MoviePage />} />
+				<Route path="/people/:id" element={<ActorPage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</div>

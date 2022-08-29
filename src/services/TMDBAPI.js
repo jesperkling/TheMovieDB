@@ -40,6 +40,12 @@ const getActor = async (id) => {
 	return response.data
 }
 
+const getActorMovies = async (id) => {
+	const response = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&with_people=${id}`)
+
+	return response.data
+}
+
 const getGenre = async (genre, page) => {
 	const response = await axios.get(`/discover/movie?api_key=${apiKey}&with_genres=${genre}&page=${page}`)
 
@@ -54,6 +60,7 @@ const exports = {
 	getMovie,
 	getActor,
 	getGenre,
+	getActorMovies,
 }
 
 export default exports
