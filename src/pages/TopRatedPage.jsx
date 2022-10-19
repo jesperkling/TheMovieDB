@@ -5,7 +5,7 @@ import TheMovieDBAPI from '../services/TMDBAPI'
 import { Link } from 'react-router-dom'
 
 const TopRatedPage = () => {
-	const { data, isLoading, error, isError } = useQuery(['popular'], TheMovieDBAPI.getTopRatedMovies)
+	const { data, isLoading, error, isError } = useQuery(['top_rated'], TheMovieDBAPI.getTopRatedMovies)
 
 	return (
 		<Container className='text-center'>
