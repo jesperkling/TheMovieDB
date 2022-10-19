@@ -1,14 +1,16 @@
 import Container from 'react-bootstrap/Container'
 import { useQuery } from 'react-query'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import TheMovieDBAPI from '../services/TMDBAPI'
 
 const ActorPage = () => {
 	const { id } = useParams()
 	const { data, error, isError, isLoading } = useQuery(['actor', id], () => TheMovieDBAPI.getActor(id))
 	const { data: actorMovies, isLoading: isLoadingTwo, isError: isErrorTwo, error: errorTwo } = useQuery(['actorMovies', id], () => TheMovieDBAPI.getActorMovies(id))
+	const navigate = useNavigate()
 
-	console.log(actorMovies)
+	console.log('data', data)
+	console.log('actorMovies', actorMovies)
 	return (
 		<Container>
 			{isLoading && (<p>Loading movie...</p>)}
@@ -30,13 +32,14 @@ const ActorPage = () => {
 						<p>Date of Birth: {data.birthday}</p>
 						<p>Place of Birth: {data.place_of_birth}</p>
 						<p>Biography: {data.biography}</p>
+						<a href={data.homepage}>{data.homepage}</a>
 					</div>
 					<div>
 						<h3 className='text-center'>Movies starring {data.name}</h3>
 						{actorMovies && (
-							actorMovies.results.map(movie => (
+							actorMovies.results.map((movie, id) => (
 								<div className='text-center' key={movie.id}>
-									<Link to={`movie/${movie.id}`}>{movie.title}</Link>
+									<Link to={`/movie/${movie.id}`}>{movie.title}</Link>
 								</div>
 							))
 						)}
