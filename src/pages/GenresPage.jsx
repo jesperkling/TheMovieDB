@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 const GenresPage = () => {
 	const { data, isLoading, isError, error } = useQuery(['genres'], TheMovieDBAPI.getGenres)
-
+	console.log(data)
 	return (
 		<Container className='text-center'>
 			<h1>Genres</h1>
