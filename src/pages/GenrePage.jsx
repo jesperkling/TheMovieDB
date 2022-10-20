@@ -6,8 +6,8 @@ import { Link, useParams } from 'react-router-dom'
 
 const GenrePage = () => {
 	const { id } = useParams()
-	const { data, isLoading, isError, error } =useQuery(['genre', id], () => TheMovieDBAPI.getGenre(id))
-	console.log(data)
+	const { data, isLoading, isError, error } =useQuery(['genres', id], () => TheMovieDBAPI.getGenre(id))
+
 	return (
 		<Container className='text-center'>
 			{isLoading && (<p>Loading genres...</p>)}
@@ -28,7 +28,7 @@ const GenrePage = () => {
 								/>
 								: <p>No poster available</p>
 							}
-							<Link to={`/movie/${movie.id}`}>Read more</Link>
+							<Link to={`/movies/${movie.id}`}>Read more</Link>
 						</ListGroup.Item>
 					)}
 				</ListGroup>
