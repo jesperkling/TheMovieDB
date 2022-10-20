@@ -1,6 +1,4 @@
 import { ListGroup } from 'react-bootstrap'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import { useQuery } from 'react-query'
 import TheMovieDBAPI from '../services/TMDBAPI'
