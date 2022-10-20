@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom'
 
 const NowPlayingPage = () => {
 	const { data, isLoading, error, isError } = useQuery(['now_playing'], TheMovieDBAPI.getNowPlaying)
-	
+	console.log(data)
 	return (
 		<Container className='text-center'>
-			<h1>Now playing in cinemas</h1>
+			<h1 className='py-3'>Now playing in cinemas</h1>
 
 			{isLoading && (<p>Loading movies...</p>)}
 
@@ -19,8 +19,6 @@ const NowPlayingPage = () => {
 				<ListGroup>
 					{data.results.map(movie => 
 						<ListGroup.Item key={movie.id}>
-							<h3>{movie.title}</h3>
-							<p>{movie.release_date}</p>
 							{movie.poster_path 
 								? <img 
 									className='img-fluid'
@@ -29,7 +27,13 @@ const NowPlayingPage = () => {
 								/>
 								: <p>No poster available</p>
 							}
-							<Link to={`/movies/${movie.id}`}>Read more</Link>
+							<div className='py-3'>
+								<h3>{movie.title}</h3>
+								<p><strong>Released:</strong> {movie.release_date}</p>
+								<p><strong>Rating:</strong> {movie.vote_average} ({movie.vote_count})</p>
+								<p>{movie.overview}</p>
+								<Link to={`/movies/${movie.id}`}>Read more</Link>
+							</div>
 						</ListGroup.Item>
 					)}
 				</ListGroup>
