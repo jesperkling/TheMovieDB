@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 
 const Pagination = ({ page, numPages, hasPrevPage, onPrevPage, hasNextPage, onNextPage}) => {
     return (
-        <div className='d-flex justify-content-between align-items-center mt-3'>
+        <div className='d-flex justify-content-between align-items-center m-3'>
             <div>
                 <Button 
                     variant="primary" 
