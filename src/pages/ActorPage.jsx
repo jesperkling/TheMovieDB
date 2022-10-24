@@ -39,7 +39,7 @@ const ActorPage = () => {
 						{actorMovies && (
 							actorMovies.results.map((movie, id) => (
 								<div className='text-center' key={movie.id}>
-									<Link to={`/movie/${movie.id}`}>{movie.title}</Link>
+									<Link to={`/movies/${movie.id}`}>{movie.title}</Link>
 								</div>
 							))
 						)}
