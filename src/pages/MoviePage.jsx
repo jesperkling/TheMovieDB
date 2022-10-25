@@ -6,7 +6,7 @@ import TheMovieDBAPI from '../services/TMDBAPI'
 const MoviePage = () => {
 	const { id } = useParams()
 	const { data, error, isError, isLoading } = useQuery(['movie', id], () => TheMovieDBAPI.getMovie(id))
-
+	console.log(data)
 	return (
 		<Container className='text-center'>
 			<h1>Movie Page</h1>
@@ -17,7 +17,7 @@ const MoviePage = () => {
 
 			{data && (
 				<div>
-					<h3>{data.original_title}</h3>
+					<h3>{data.title}</h3>
 					{data.poster_path
 						? <img 
 							className='img-fluid'
@@ -26,8 +26,8 @@ const MoviePage = () => {
 						/>
 						: <p>No poster available</p>
 					}
-					<p>{data.release_date}</p>
-					<p>{data.overview}</p>
+					<p><strong>Released:</strong> {data.release_date}</p>
+					<p><strong>Plot:</strong> {data.overview}</p>
 					<h3>Actors:</h3>
 					{data.credits.cast.map(actor => (
 						<div key={actor.id}>

@@ -29,9 +29,9 @@ const ActorPage = () => {
 							/>
 							:	<p>No picture available</p>
 						}
-						<p>Date of Birth: {data.birthday}</p>
-						<p>Place of Birth: {data.place_of_birth}</p>
-						<p>Biography: {data.biography}</p>
+						<p><strong>Date of Birth:</strong> {data.birthday}</p>
+						<p><strong>Place of Birth:</strong> {data.place_of_birth}</p>
+						<p><strong>Biography:</strong> {data.biography}</p>
 						<a href={data.homepage}>{data.homepage}</a>
 					</div>
 					<div>
