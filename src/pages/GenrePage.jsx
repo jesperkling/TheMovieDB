@@ -2,12 +2,18 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
 import { useQuery } from 'react-query'
 import TheMovieDBAPI from '../services/TMDBAPI'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import Pagination from '../components/Pagination'
+import { useState } from 'react'
 
 const GenrePage = () => {
-	const { id } = useParams()
-	const { data, isLoading, isError, error } =useQuery(['genres', id], () => TheMovieDBAPI.getGenre(id))
+	const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
+	const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
+	const { id, name } = useParams()
+	const { data, isLoading, isError, error } = useQuery(['moviesbygenre', { id, page }], () => TheMovieDBAPI.getMoviesByGenre(id, page))
+	const navigate = useNavigate()
+	
+	console.log('data:', data, 'page:',  id)
 
 	return (
 		<Container className='text-center'>
@@ -34,7 +40,14 @@ const GenrePage = () => {
 							</ListGroup.Item>
 						)}
 					</ListGroup>
-					<Pagination />
+					<Pagination
+						page={page}
+						numPages={Math.ceil(data.total_pages)}
+						hasPrevPage={data.page !== 1}
+						hasNextPage={data.page !== data.numPages}
+						onPrevPage={() => setSearchParams({ page: page - 1 })}
+						onNextPage={() => setSearchParams({ page: page + 1 })}
+					/>
 				</>
 			)}
 

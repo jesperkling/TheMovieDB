@@ -46,8 +46,8 @@ const getActorMovies = async (id) => {
 	return response.data
 }
 
-const getGenre = async (id) => {
-	const response = await axios.get(`/discover/movie?api_key=${apiKey}&with_genres=${id}`)
+const getMoviesByGenre = async (id, page) => {
+	const response = await axios.get(`/discover/movie?api_key=${apiKey}&with_genres=${id}&page=${page}`)
 
 	return response.data
 }
@@ -59,7 +59,7 @@ const exports = {
 	getTopRatedMovies,
 	getMovie,
 	getActor,
-	getGenre,
+	getMoviesByGenre,
 	getActorMovies,
 }
 
