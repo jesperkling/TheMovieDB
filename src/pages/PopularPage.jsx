@@ -1,10 +1,9 @@
 import Container from 'react-bootstrap/Container'
-import { useQuery } from 'react-query'
-import TheMovieDBAPI from '../services/TMDBAPI'
 import MovieCard from '../components/MovieCard'
+import usePopular from '../hooks/usePopular'
 
 const PopularPage = () => {
-	const { data, isLoading, error, isError } = useQuery(['popular'], TheMovieDBAPI.getPopularMovies)
+	const { data, isLoading, error, isError } = usePopular()
 
 	return (
 		<Container className='text-center'>
