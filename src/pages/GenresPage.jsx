@@ -10,7 +10,7 @@ const GenresPage = () => {
 	console.log(data)
 	return (
 		<Container className='text-center'>
-			<h1>Genres</h1>
+			<h1 className='py-3'>Genres</h1>
 
 			{isLoading && (<p>Loading genres...</p>)}
 

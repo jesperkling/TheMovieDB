@@ -7,7 +7,7 @@ const PopularPage = () => {
 
 	return (
 		<Container className='text-center'>
-			<h1>Popular movies</h1>
+			<h1 className='py-3'>Popular movies</h1>
 
 			{isLoading && (<p>Loading movies...</p>)}
 
