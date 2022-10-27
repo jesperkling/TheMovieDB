@@ -1,10 +1,9 @@
 import Container from 'react-bootstrap/Container'
-import { useQuery } from 'react-query'
-import TheMovieDBAPI from '../services/TMDBAPI'
 import MovieCard from '../components/MovieCard'
+import useNowPlaying from '../hooks/useNowPlaying'
 
 const NowPlayingPage = () => {
-	const { data, isLoading, error, isError } = useQuery(['now_playing'], TheMovieDBAPI.getNowPlaying)
+	const { data, isLoading, error, isError } = useNowPlaying()
 	
 	return (
 		<Container className='text-center'>
