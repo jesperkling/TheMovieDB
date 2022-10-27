@@ -1,13 +1,11 @@
 import { ListGroup, ListGroupItem } from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
-import { useQuery } from 'react-query'
-import TheMovieDBAPI from '../services/TMDBAPI'
 import { Link } from 'react-router-dom'
-
+import useGenres from '../hooks/useGenres'
 
 const GenresPage = () => {
-	const { data, isLoading, isError, error } = useQuery(['genres'], TheMovieDBAPI.getGenres)
-	console.log(data)
+	const { data, isLoading, isError, error } = useGenres()
+	
 	return (
 		<Container className='text-center'>
 			<h1 className='py-3'>Genres</h1>
