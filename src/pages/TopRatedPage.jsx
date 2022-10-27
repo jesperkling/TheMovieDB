@@ -1,14 +1,13 @@
 import Container from 'react-bootstrap/Container'
-import { useQuery } from 'react-query'
-import TheMovieDBAPI from '../services/TMDBAPI'
 import MovieCard from '../components/MovieCard'
+import useTopRated from '../hooks/useTopRated'
 
 const TopRatedPage = () => {
-	const { data, isLoading, error, isError } = useQuery(['top_rated'], TheMovieDBAPI.getTopRatedMovies)
+	const { data, isLoading, error, isError } = useTopRated()
 
 	return (
 		<Container className='text-center'>
-			<h1>Top rated movies</h1>
+			<h1 className='py-3'>Top rated movies</h1>
 
 			{isLoading && (<p>Loading movies...</p>)}
 
