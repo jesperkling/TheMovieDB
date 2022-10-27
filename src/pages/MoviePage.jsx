@@ -2,11 +2,11 @@ import Container from 'react-bootstrap/Container'
 import { useQuery } from 'react-query'
 import { Link, useParams } from 'react-router-dom'
 import TheMovieDBAPI from '../services/TMDBAPI'
+import useMovie from '../hooks/useMovie'
 
 const MoviePage = () => {
 	const { id } = useParams()
-	const { data, error, isError, isLoading } = useQuery(['movie', id], () => TheMovieDBAPI.getMovie(id))
-	console.log(data)
+	const { data, error, isError, isLoading } = useMovie(id)
 	return (
 		<Container className='text-center'>
 			<h1>Movie Page</h1>
