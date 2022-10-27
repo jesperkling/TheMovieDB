@@ -1,13 +1,14 @@
 import Container from 'react-bootstrap/Container'
 import { useQuery } from 'react-query'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import useActor from '../hooks/useActor'
 import TheMovieDBAPI from '../services/TMDBAPI'
 
 const ActorPage = () => {
 	const { id } = useParams()
-	const { data, error, isError, isLoading } = useQuery(['actor', id], () => TheMovieDBAPI.getActor(id))
+	const { data, error, isError, isLoading } = useActor(id)
 	const { data: actorMovies, isLoading: isLoadingTwo, isError: isErrorTwo, error: errorTwo } = useQuery(['actorMovies', id], () => TheMovieDBAPI.getActorMovies(id))
-	const navigate = useNavigate()
+	
 
 	console.log('data', data)
 	console.log('actorMovies', actorMovies)
