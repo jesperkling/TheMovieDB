@@ -5,4 +5,4 @@ const useActor = (id) => {
     return useQuery(['actor', id], () => TMDBAPI.getActor(id))
 }
 
-export default useActor;
+export default useActor
